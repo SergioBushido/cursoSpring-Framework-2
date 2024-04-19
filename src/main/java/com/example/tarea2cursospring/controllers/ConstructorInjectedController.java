@@ -1,20 +1,17 @@
 package com.example.tarea2cursospring.controllers;
 
 import com.example.tarea2cursospring.services.SaludoServicio;
-import com.example.tarea2cursospring.services.SaludoServicioImpl;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class MyController {
-
+public class ConstructorInjectedController {
     private final SaludoServicio saludoServicio;
 
-    public MyController() {
-        this.saludoServicio = new SaludoServicioImpl();
+    public ConstructorInjectedController(SaludoServicio saludoServicio) {
+        this.saludoServicio = saludoServicio;
     }
 
-    public String diHola(){
-        System.out.println("Soy el controlador");
+    public String sayHello(){
         return saludoServicio.diHola();
     }
 }
